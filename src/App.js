@@ -4,13 +4,14 @@ import Cart from "./pages/Cart/Cart";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
 import GoodCard from "./pages/GoodCard";
+import Header from "./components/header";
+import Footer from "./components/Footer";
 
 export const goodsContext = createContext();
 
 
 function App() {
 
-  const [search, setSearch] = useState('');
   const [cartGoods, setCartGoods] = useState([]);
 
   const sum = useMemo(() => {
@@ -25,13 +26,15 @@ function App() {
 
   return (
     <>
-      <goodsContext.Provider value={{cartGoods, search, setCartGoods, setSearch, sum}}>
+      <goodsContext.Provider value={{cartGoods, setCartGoods, sum}}>
+        <Header/>
         <Routes>
-          <Route path="/" element={<Home search={search}/>}/>
+          <Route path="/" element={<Home/>}/>
           {/*<Route path="/:id" element={<GoodCard/>} />*/}
           <Route path="/cart" element={<Cart/>}/>
           <Route path="*" element={<Error/>}/>
         </Routes>
+        <Footer/>
       </goodsContext.Provider>
     </>
   );

@@ -11,9 +11,9 @@ import error from "./Error";
 import {useSelector} from "react-redux";
 
 
-const Home = ({search}) => {
+const Home = () => {
 
-  const {category, sort, shevron} = useSelector((state) => state.filter)
+  const {category, sort, shevron, search} = useSelector((state) => state.filter)
   const [dataCategory, setDataCategory] = useState([''])
   const [dataItems, setDataItems] = useState([])
   const [loading, setLoading] = useState(true)
@@ -73,7 +73,6 @@ const Home = ({search}) => {
 
   return (
     <>
-      <Header/>
       <MainBlock/>
       <div className='flex flex-col justify-center items-center w-full md:w-3/4 mx-auto text-xs md:text-base'>
         <Category data={dataCategory} />
@@ -102,7 +101,6 @@ const Home = ({search}) => {
         onClickLimitElements={setLimitElements}
       />
       <hr className='my-6'/>
-      <Footer/>
     </>
   );
 };

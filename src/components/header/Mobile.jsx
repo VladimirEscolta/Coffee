@@ -14,9 +14,6 @@ import Search from "../search/Search";
 const Mobile = ({sum}) => {
 
   const [openMenu, setOpenMenu] = useState(false)
-  const clickOpenMenu = () => {
-    setOpenMenu(!openMenu)
-  }
 
   return (
     <>
@@ -26,10 +23,10 @@ const Mobile = ({sum}) => {
         <div className='h-10 relative'>
           <CloseIcon
             className={`${openMenu ? 'opacity-100 rotate-180' : 'opacity-0'} h-10 absolute right-0 cursor-pointer self-start stroke-yellow-500 transition-all duration-500`}
-            onClick={clickOpenMenu}/>
+            onClick={() => setOpenMenu(!openMenu)}/>
           <Bars3Icon
             className={`${openMenu ? 'opacity-0 ' : 'opacity-100'} h-10 absolute right-0 cursor-pointer self-start transition-all duration-500`}
-            onClick={clickOpenMenu}/>
+            onClick={() => setOpenMenu(!openMenu)}/>
         </div>
       </div>
       <div
@@ -51,14 +48,11 @@ const Mobile = ({sum}) => {
           <div className='mr-4'>Ваша скидка 0%</div>
         </div>
         <hr className='my-4'/>
-        {
-          window.location.href.includes('main') &&
-          <div className='flex items-center mb-2'>
-            <div className='flex items-center bg-stone-100 rounded-full'>
-              <Search/>
-            </div>
+        <div className='flex items-center mb-2 w-full'>
+          <div className='flex items-center bg-stone-100 rounded-full w-full'>
+            <Search/>
           </div>
-        }
+        </div>
         <div className='flex items-center mb-2'>
           <div className="mr-4 h-8 w-8 bg-black rounded-full flex justify-center items-center cursor-pointer">
             <HeartIcon className='h-4 stroke-white stroke-2 fill-none'/>

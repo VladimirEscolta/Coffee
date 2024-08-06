@@ -14,12 +14,9 @@ const HeaderLevel2 = ({sum}) => {
         </Link>
         <p>Интернет-магазин свежего кофе</p>
       </div>
-      {
-        !window.location.href.includes('cart') &&
-        <div className='flex items-center bg-stone-100 rounded-full'>
-          <Search/>
-        </div>
-      }
+      <div className='flex items-center bg-stone-100 rounded-full'>
+        <Search/>
+      </div>
       <div className='flex'>
         <div className='flex items-center'>
           <div className="mr-4 h-8 w-8 bg-black rounded-full flex justify-center items-center cursor-pointer">
