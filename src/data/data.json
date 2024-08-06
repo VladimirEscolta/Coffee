@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1001,
+    "info": [
+      4.6,
+      2439
+    ],
+    "name": [
+      "Для эспрессо",
+      "БРАЗИЛИЯ СЕРРАДО",
+      "натуральный"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696589663.944-brazil-cerrado-025-full.png",
+    "description": "Плотный кофе с нотами жареных орехов, шоколада и карамели",
+    "acidity": 45,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 429,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 1459,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1002,
+    "info": [
+      4.6,
+      25
+    ],
+    "name": [
+      "Для эспрессо",
+      "ПЕРСИК ДЖЕМ",
+      "инфьюзд + анаэробный"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696589277.4165-espresso-peach-jam-025-full.png",
+    "description": "Сладкий кофе со вкусом персикового джема, печенья и тёмного шоколада",
+    "acidity": 40,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 1019,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 3459,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1003,
+    "info": [
+      4.6,
+      1973
+    ],
+    "name": [
+      "Для эспрессо",
+      "НАТТИ",
+      "смесь"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696589620.0908-espresso-nutty-025-full.png",
+    "description": "Плотный кофе со вкусом жареных орехов, печенья и нуги",
+    "acidity": 20,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 499,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 1699,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1004,
+    "info": [
+      4.5,
+      1011
+    ],
+    "name": [
+      "Для эспрессо",
+      "БРАЗИЛИЯ МОЖИАНА",
+      "натуральный"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1695982598.8847-brazil-mogiana-025-full.png",
+    "description": "Плотный кофе с нотами фундука, какао и сухофруктов",
+    "acidity": 40,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 499,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 1699,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1005,
+    "info": [
+      4.6,
+      3246
+    ],
+    "name": [
+      "Для эспрессо",
+      "ЭФИОПИЯ ИРГАЧЕФФ НАТ",
+      "натуральный"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1695983118.8835-espresso-ethiopia-irgacheff-nat-025-full.png",
+    "description": "Сладкий кофе с нотами цветов, тёмных ягод, молочного шоколада и грейпфрута",
+    "acidity": 60,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 599,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 2039,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1006,
+    "info": [
+      4.6,
+      1679
+    ],
+    "name": [
+      "Для эспрессо",
+      "КЭНДИ",
+      "смесь"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696589251.1186-candy-025-full.png",
+    "description": "Плотный кофе с нотами тёмной карамели, цукатов и специй",
+    "acidity": 40,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 599,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 2039,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1007,
+    "info": [
+      4.6,
+      1428
+    ],
+    "name": [
+      "Для эспрессо",
+      "БЭРРИ",
+      "смесь"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696589223.5197-espresso-berri-025-full.png",
+    "description": "Плотный кофе с нотами ореховой пасты, темных ягод и печенья",
+    "acidity": 40,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 579,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 1969,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1008,
+    "info": [
+      4.5,
+      1332
+    ],
+    "name": [
+      "Для эспрессо",
+      "БРАЗИЛИЯ СУЛЬ-ДЕ-МИНАС",
+      "натуральный"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696586622.47-braziliya-sul-de-minas-025-full.png",
+    "description": "Сладкий кофе с нотами арахиса, пудры какао и цедры лимона",
+    "acidity": 40,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 559,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 1899,
+      "discount2": 15
+    }
+  },
+  {
+    "id": 1009,
+    "info": [
+      4.5,
+      291
+    ],
+    "name": [
+      "Для эспрессо",
+      "КИТАЙ СИМАО",
+      "мытый"
+    ],
+    "foto": "https://coffee-static.storage.yandexcloud.net/files/shares/data/product/1696589707.0508-china-simao-025-full.png",
+    "description": "Сладкий кофе со вкусом желтого яблока, сухофруктов и ореховой пасты",
+    "acidity": 40,
+    "density": 60,
+    "price": {
+      "weight": 250,
+      "value": 549,
+      "discount": "",
+      "weight2": 1000,
+      "value2": 1869,
+      "discount2": 15
+    }
+  }
+]

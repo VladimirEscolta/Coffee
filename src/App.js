@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {createContext, useMemo, useState} from "react";
+import {Routes, Route} from 'react-router-dom';
+import Cart from "./pages/Cart/Cart";
+import Error from "./pages/Error";
+import Home from "./pages/Home";
+import GoodCard from "./pages/GoodCard";
+
+export const goodsContext = createContext();
+
 
 function App() {
+
+  const [search, setSearch] = useState('');
+  const [cartGoods, setCartGoods] = useState([]);
+
+  const sum = useMemo(() => {
+    let allCount = 0
+    let items = cartGoods.length
+    cartGoods.map(items => {
+      const count = items.count * items.price1 + items.count2 * items.price2
+      allCount += count
+    })
+    return [allCount, items]
+  }, [cartGoods])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <goodsContext.Provider value={{cartGoods, search, setCartGoods, setSearch, sum}}>
+        <Routes>
+          <Route path="/" element={<Home search={search}/>}/>
+          {/*<Route path="/:id" element={<GoodCard/>} />*/}
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="*" element={<Error/>}/>
+        </Routes>
+      </goodsContext.Provider>
+    </>
   );
 }
 
