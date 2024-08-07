@@ -38,9 +38,33 @@ const GoodOrder = ({price}) => {
     setIsActive2(true)
   }
 
+  // const buyGoods = (price, count, isActive) => {
+  //   if (count > 0) {
+  //     let array = cartGoods
+  //     let info = price
+  //     if (isActive) {
+  //       info.count = count
+  //       info.count2 = info.count2 ? info.count2 : 0
+  //     } else {
+  //       info.count2 = count
+  //       info.count = info.count ? info.count : 0
+  //     }
+  //     if (array.length > 0) {
+  //       let indexObject = array.findIndex(el => el.id === info.id)
+  //       if (indexObject !== -1) {
+  //         array[indexObject] = info
+  //       } else array.push(info)
+  //     } else array.push(info)
+  //     setCount(0)
+  //     setCartGoods([...array])
+  //   }
+  // }
+
   const buyGoods = (price, count, isActive) => {
     if (count > 0) {
-      let array = cartGoods
+      let array = structuredClone(price)
+
+
       let info = price
       if (isActive) {
         info.count = count

@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {TrashIcon} from "../../assets/icons";
-import Header from "../../components/header";
 import {goodsContext} from "../../App";
 import CartGood from "./ui/CartGood";
 
@@ -20,7 +19,6 @@ const Cart = () => {
 
   return (
     <>
-      <Header/>
       <div className='flex flex-col w-full md:w-3/4 mx-auto items-center mt-10 px-2 lg:px-0'>
 
         <div className='w-full flex justify-center lg:justify-end items-center'>

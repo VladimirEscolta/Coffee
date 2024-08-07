@@ -1,10 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
   category: 'Все',
   sort: {name: 'цене', value: 'price1'},
   shevron: true,
-  search: ''
+  search: '',
+  currentPage: 1,
+  limitPage: 10
 }
 
 export const filterSlice = createSlice({
@@ -22,10 +24,16 @@ export const filterSlice = createSlice({
     },
     setSearch(state, action) {
       state.search = action.payload
+    },
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload
+    },
+    setLimitPage(state, action) {
+      state.limitPage = action.payload
     }
   },
 })
 
-export const { setCategory, setSort, setRotateShevron, setSearch } = filterSlice.actions
+export const {setCategory, setSort, setRotateShevron, setSearch, setCurrentPage, setLimitPage} = filterSlice.actions
 
 export default filterSlice.reducer

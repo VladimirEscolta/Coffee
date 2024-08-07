@@ -1,15 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {ShevronDownIcon} from "../assets/icons";
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrentPage, setLimitPage} from "../redux/slices/filterSlice";
 
-const Pagination = ({page, dataPage, limitElements, onClickPage, onClickLimitElements}) => {
+const Pagination = ({dataPage}) => {
 
+  const {currentPage, limitPage} = useSelector((state) => state.filter)
+  const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false)
   const dataLimit = [5,10,15]
+
   const pageDown = () => {
-    page > 1 && onClickPage(page-1)
+    currentPage > 1 && dispatch(setCurrentPage(currentPage-1))
   }
+
   const pageUp = () => {
-    page < dataPage[dataPage.length - 1] && onClickPage(page+1)
+    currentPage < dataPage[dataPage.length - 1] && dispatch(setCurrentPage(currentPage+1))
   }
 
   useEffect(() => {
@@ -33,7 +39,7 @@ const Pagination = ({page, dataPage, limitElements, onClickPage, onClickLimitEle
             className='modal-sorted border-b-2 border-b-yellow-500 text-center mx-2 w-28 cursor-pointer select-none'
             onClick={() => setIsOpen(!isOpen)}
           >
-            {limitElements}
+            {limitPage}
           </div>
           {
             isOpen &&
@@ -42,7 +48,7 @@ const Pagination = ({page, dataPage, limitElements, onClickPage, onClickLimitEle
                 <div
                   key={index}
                   className="flex px-2 py-1 opacity-50 cursor-pointer select-none rounded-md hover:bg-yellow-50 hover:opacity-100"
-                  onClick={() => onClickLimitElements(items)}
+                  onClick={() => dispatch(setLimitPage(items))}
                 >
                   {items}
                 </div>
@@ -57,8 +63,8 @@ const Pagination = ({page, dataPage, limitElements, onClickPage, onClickLimitEle
           {dataPage.map((items) => (
             <div
               key={items}
-              className={`flex bg-stone-100 px-4 py-2 rounded-md mx-2 cursor-pointer select-none hover:text-yellow-500 hover:shadow-lg hover:shadow-yellow-500 ${page===items && 'scale-105 shadow-lg shadow-yellow-500'}`}
-              onClick={() => onClickPage(items)}
+              className={`flex bg-stone-100 px-4 py-2 rounded-md mx-2 cursor-pointer select-none hover:text-yellow-500 hover:shadow-lg hover:shadow-yellow-500 ${currentPage === items && 'scale-105 shadow-lg shadow-yellow-500'}`}
+              onClick={() => dispatch(setCurrentPage(items))}
             >
               {items}
             </div>
@@ -67,9 +73,6 @@ const Pagination = ({page, dataPage, limitElements, onClickPage, onClickLimitEle
         <ShevronDownIcon className='w-4 h-4 cursor-pointer -rotate-90' onClick={() => pageUp()}/>
       </div>
     </>
-
-
-
   );
 };
 
