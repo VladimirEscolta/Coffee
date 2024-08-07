@@ -4,17 +4,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {setSort, setRotateShevron} from "../../redux/slices/filterSlice";
 
 
-const Sort = () => {
+const Sort = ({data}) => {
 
   const sortValue = useSelector((state) => state.filter.sort)
   const shevronValue = useSelector((state) => state.filter.shevron)
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false)
-  const dataSort = [
-    {name: 'цене', value: 'price1'},
-    {name: 'названию', value: 'name2'},
-    {name: 'отзывам', value: 'info2'}
-  ]
 
   useEffect(() => {
     const bodyClick = (event) => {
@@ -41,7 +36,7 @@ const Sort = () => {
         {
           isOpen &&
           <div className="absolute z-10 top-10 w-32 bg-white border border-yellow-500 rounded-md flex flex-col">
-            {dataSort.map((items) => (
+            {data.map((items) => (
               <div
                 key={items.name}
                 className="flex px-2 py-1 opacity-50 cursor-pointer select-none rounded-md hover:bg-yellow-50 hover:opacity-100"
@@ -53,8 +48,8 @@ const Sort = () => {
           </div>
         }
         <ShevronDownIcon
-          className={`w-4 h-4 cursor-pointer transition-all duration-500 ${shevronValue && 'rotate-180'}`}
-          onClick={() => dispatch(setRotateShevron())}
+          className={`w-4 h-4 cursor-pointer transition-all duration-500 ${shevronValue === 'desc' && 'rotate-180'}`}
+          onClick={() => dispatch(setRotateShevron(shevronValue === 'asc' ? 'desc' : 'asc'))}
         />
       </div>
     </div>

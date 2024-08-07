@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit'
 const initialState = {
   category: 'Все',
   sort: {name: 'цене', value: 'price1'},
-  shevron: true,
+  shevron: 'asc',
   search: '',
   currentPage: 1,
   limitPage: 10
@@ -19,8 +19,8 @@ export const filterSlice = createSlice({
     setSort(state, action) {
       state.sort = action.payload
     },
-    setRotateShevron(state) {
-      state.shevron = !state.shevron
+    setRotateShevron(state, action) {
+      state.shevron = action.payload
     },
     setSearch(state, action) {
       state.search = action.payload

@@ -63,7 +63,7 @@ const Pagination = ({dataPage}) => {
           {dataPage.map((items) => (
             <div
               key={items}
-              className={`flex bg-stone-100 px-4 py-2 rounded-md mx-2 cursor-pointer select-none hover:text-yellow-500 hover:shadow-lg hover:shadow-yellow-500 ${currentPage === items && 'scale-105 shadow-lg shadow-yellow-500'}`}
+              className={`flex bg-stone-100 px-4 py-2 rounded-md mx-2 cursor-pointer select-none hover:text-yellow-500 hover:shadow-lg hover:shadow-yellow-500 ${currentPage == items && 'scale-105 shadow-lg shadow-yellow-500'}`}
               onClick={() => dispatch(setCurrentPage(items))}
             >
               {items}
