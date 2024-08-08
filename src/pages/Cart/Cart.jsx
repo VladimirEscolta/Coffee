@@ -8,7 +8,7 @@ import coffee from "../../redux/slices/coffeeSlice";
 
 const Cart = () => {
 
-  const dataItems = useSelector((state) => state.coffee.items)
+  const {items, sum} = useSelector((state) => state.coffee)
   const dispatch = useDispatch()
 
   // const {cartGoods, setCartGoods, sum} = useContext(goodsContext)
@@ -37,17 +37,16 @@ const Cart = () => {
         </div>
         <hr className='w-full my-6'/>
         <div className='flex flex-col items-center w-full'>
-          {dataItems.length > 0 &&
-            dataItems.map((items, index) => (
-              <CartGood key={index} items={items} index={index} />
-              // <CartGood key={items.name2} items={items} index={index} />
+          {items.length > 0 &&
+            items.map(items => (
+              <CartGood key={items.id} items={items} className="mt-8 first:mt-0"/>
             ))
           }
         </div>
         <hr className='w-full my-6'/>
         <div className='flex items-center mb-4'>
           <p>Сумма заказа: </p>
-          {/*<p className='w-32 flex text-2xl text-yellow-500 font-bold justify-end'>{sum[0]} ₽</p>*/}
+          <p className='w-32 flex text-2xl text-yellow-500 font-bold justify-end'>{sum} ₽</p>
         </div>
         <div className='flex w-32 h-10 bg-yellow-500 rounded-lg items-center justify-center'>
           <button className='px-2 text-white text-sm' onClick={orderGoods}>Оформить заказ</button>

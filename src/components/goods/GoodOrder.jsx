@@ -1,13 +1,11 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {ShopIcon} from "../../assets/icons";
-import {goodsContext} from "../../App";
-import {useDispatch, useSelector} from "react-redux";
-import {countMinus, setItems, setSum} from "../../redux/slices/coffeeSlice";
+import {useDispatch} from "react-redux";
+import {addItems} from "../../redux/slices/coffeeSlice";
 
 
 const GoodOrder = ({good}) => {
 
-  const {value, sum} = useSelector((state) => state.coffee)
   const dispatch = useDispatch()
 
   const [count, setCount] = useState(0)
@@ -47,8 +45,7 @@ const GoodOrder = ({good}) => {
         arrayGood.count2 = count
       }
       setCount(0)
-      dispatch(setItems(arrayGood))
-      // dispatch(setSum())
+      dispatch(addItems(arrayGood))
     }
   }
 
