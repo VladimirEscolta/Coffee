@@ -13,7 +13,7 @@ const Index = ({good, max}) => {
         <GoodName name={good}/>
         <GoodFoto foto={good.foto}/>
         <GoodDescription {...good}/>
-        <GoodOrder price={good}/>
+        <GoodOrder good={good}/>
       </div>
     </div>
   );

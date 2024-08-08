@@ -2,9 +2,12 @@ import React, {useContext} from 'react';
 import {CartIcon, ComparisonIcon, HeartIcon, SiteLogoIcon} from "../../assets/icons";
 import {Link} from "react-router-dom";
 import Search from "../search/Search";
+import {useSelector} from "react-redux";
 
 
-const HeaderLevel2 = ({sum}) => {
+const HeaderLevel2 = () => {
+
+  const {count, sum} = useSelector((state) => state.coffee)
 
   return (
     <div className='flex h-12 w-full mx-auto justify-between items-center text-stone-500'>
@@ -33,8 +36,8 @@ const HeaderLevel2 = ({sum}) => {
             <CartIcon className='h-4 stroke-white stroke-2'/>
           </div>
           <div className="text-end w-20">
-            <p className='text-yellow-500'>{sum[0]} ₽</p>
-            <p className='ms-2 lg:ms-0'>{sum[1]} шт.</p>
+            <p className='text-yellow-500'>{sum} ₽</p>
+            <p className='ms-2 lg:ms-0'>{count} шт.</p>
           </div>
         </Link>
       </div>

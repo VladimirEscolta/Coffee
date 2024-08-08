@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {ShevronDownIcon} from "../../assets/icons";
 import {useDispatch, useSelector} from "react-redux";
 import {setSort, setRotateShevron} from "../../redux/slices/filterSlice";
@@ -10,25 +10,26 @@ const Sort = ({data}) => {
   const shevronValue = useSelector((state) => state.filter.shevron)
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false)
+  const modalRef = useRef()
 
   useEffect(() => {
-    const bodyClick = (event) => {
-      !event.target.closest('.modal-sorted') && setIsOpen(false);
+    const handleClick = (event) => {
+      if (!event.composedPath().includes(modalRef.current)) {
+        setIsOpen(false)
+      }
     }
-    {
-      isOpen && document.body.addEventListener('click', bodyClick);
-    }
-    return () => {
-      document.body.removeEventListener('click', bodyClick);
-    };
-  }, [isOpen]);
+    document.body.addEventListener('click', handleClick)
+
+    return () => document.body.removeEventListener('click', handleClick)
+  }, []);
 
   return (
     <div className='flex relative m-2 justify-center items-center'>
       <div className=''>Сортировка по:</div>
       <div className='flex justify-center items-center'>
         <div
-          className='modal-sorted border-b-2 border-b-yellow-500 text-center mx-2 w-28 cursor-pointer select-none'
+          ref={modalRef}
+          className='border-b-2 border-b-yellow-500 text-center mx-2 w-28 cursor-pointer select-none'
           onClick={() => setIsOpen(!isOpen)}
         >
           {sortValue.name}

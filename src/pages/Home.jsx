@@ -46,10 +46,6 @@ const Home = () => {
         setLoading(false)
       })
       .catch((e) => console.error(e))
-
-    const count = Math.floor(countElements / limitPage) + 1
-    const array = [...Array(count)].map((_, i) => i + 1)
-    setDataPage(array)
   }
 
   useEffect(() => {
@@ -65,7 +61,7 @@ const Home = () => {
       navigate(`?${queryString}`)
     }
     mountedRef.current = true
-  },[category, sort, shevron, search, currentPage, limitPage])
+  }, [category, sort, shevron, search, currentPage, limitPage])
 
   useEffect(() => {
     if (window.location.search) {
@@ -88,7 +84,7 @@ const Home = () => {
       featchCoffee()
     }
     searchRef.current = false
-  }, [category, sort, shevron, search, currentPage, limitPage])
+  }, [sort, shevron, search, currentPage])
 
   // Получение списка категорий
   useEffect(() => {
@@ -102,6 +98,31 @@ const Home = () => {
         setCountElements(result.data.length)
       })
   }, [])
+
+  // Получение длины списка товаров при изменении категории товаров
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+    const fetch = async () => {
+      searchRef.current = false
+      try {
+        await axios.get(`https://652cbf4bd0d1df5273efa0ea.mockapi.io/items?${category === 'Все' ? '' : `name3=${category}`}`)
+          .then(result => {
+            setCountElements(result.data.length)
+            const count = Math.floor(result.data.length / limitPage) + 1
+            const array = [...Array(count)].map((_, i) => i + 1)
+            setDataPage(array)
+            dispatch(setCurrentPage(1))
+          })
+
+        await featchCoffee()
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetch()
+  }, [category, limitPage])
 
   // const maxInfo = loading ? 0 : dataItems.reduce((prev, curr) => curr.info2 > prev.info2 ? curr : prev);
 
