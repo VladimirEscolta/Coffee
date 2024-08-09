@@ -1,11 +1,15 @@
 import React from 'react';
 import {CloseIcon} from "../../../assets/icons";
 import {useDispatch} from "react-redux";
-import {deleteItems, minusItems1, minusItems2, plusItems1, plusItems2} from "../../../redux/slices/coffeeSlice";
+import {deleteItems, minusItems, plusItems} from "../../../redux/slices/coffeeSlice";
 
 const CartGood = ({items, className}) => {
 
   const dispatch = useDispatch()
+
+  const deleteItem = () => {
+    window.confirm('Вы действительно хотите удалить товар?') && dispatch(deleteItems(items))
+  }
 
   return (
     <div className={`flex flex-col xl:flex-row items-center justify-between w-full ${className}`}>
@@ -23,9 +27,9 @@ const CartGood = ({items, className}) => {
             <p className="text-yellow-500">{items.price1 * items.count1} ₽</p>
           </div>
           <div className={`flex items-center justify-end text-xl font-bold ${items.count1 > 0 ? 'opacity-100' : 'opacity-10'}`}>
-            <button onClick={() => dispatch(minusItems1(items))}>-</button>
+            <button className="px-2" onClick={() => dispatch(minusItems({count: 'count1', data: items}))}>-</button>
             <div className='w-6 mx-3 text-center'>{items.count1}</div>
-            <button onClick={() => dispatch(plusItems1(items))}>+</button>
+            <button className="px-2" onClick={() => dispatch(plusItems({count: 'count1', data: items}))}>+</button>
           </div>
         </div>
         <div className="flex">
@@ -37,21 +41,21 @@ const CartGood = ({items, className}) => {
             <p className="text-yellow-500">{items.price2 * items.count2} ₽</p>
           </div>
           <div className={`flex items-center justify-end text-xl font-bold ${items.count2 > 0 ? 'opacity-100' : 'opacity-10'}`}>
-            <button onClick={() => dispatch(minusItems2(items))}>-</button>
+            <button className="px-2" onClick={() => dispatch(minusItems({count: 'count2', data: items}))}>-</button>
             <div className='w-6 mx-3 text-center'>{items.count2}</div>
-            <button onClick={() => dispatch(plusItems2(items))}>+</button>
+            <button className="px-2" onClick={() => dispatch(plusItems({count: 'count2', data: items}))}>+</button>
           </div>
         </div>
       </div>
       <div className='flex items-center'>
         <p className='w-32 mr-5 flex text-2xl text-yellow-500 font-bold justify-end'>{items.price1 * items.count1 + items.price2 * items.count2} ₽</p>
-        <div
-          className='flex w-32 text-white bg-red-500 border rounded-lg items-center justify-center cursor-pointer'
-          onClick={() => dispatch(deleteItems(items))}
+        <button
+          className='flex w-32 h-10 text-red-500 bg-stone-100 border rounded-lg items-center justify-center cursor-pointer'
+          onClick={deleteItem}
         >
-          <CloseIcon className='w-4 h-10'/>
-          <button className='ps-2 text-sm'>Удалить</button>
-        </div>
+          <CloseIcon className='w-4'/>
+          <p className='ps-2 text-sm'>Удалить</p>
+        </button>
       </div>
     </div>
   );

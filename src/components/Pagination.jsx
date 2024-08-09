@@ -32,7 +32,7 @@ const Pagination = ({dataPage}) => {
 
   return (
     <>
-      <div className='flex relative m-5 justify-center items-center'>
+      <div className='flex relative justify-center items-center'>
         <div className=''>Отображать:</div>
         <div className='flex justify-center items-center'>
           <div
@@ -57,7 +57,7 @@ const Pagination = ({dataPage}) => {
           }
         </div>
       </div>
-      <div className='flex justify-center items-center mx-auto'>
+      <div className='flex justify-center items-center mx-auto mt-6'>
         <ShevronDownIcon className='w-4 h-4 cursor-pointer rotate-90' onClick={() => pageDown()}/>
         <div className='flex flex-wrap w-fit justify-center items-center'>
           {dataPage.map((items) => (

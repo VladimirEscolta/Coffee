@@ -127,13 +127,15 @@ const Home = () => {
   // const maxInfo = loading ? 0 : dataItems.reduce((prev, curr) => curr.info2 > prev.info2 ? curr : prev);
 
   return (
-    <>
+    <div className="w-full lg:w-4/5 mx-auto">
       <MainBlock/>
-      <div className='flex flex-col justify-center items-center w-full md:w-3/4 mx-auto text-xs md:text-base'>
+      <div className='flex flex-col justify-center items-center w-full text-xs md:text-base'>
         <Category data={dataCategory}/>
         <Sort data={dataSort}/>
       </div>
-      <hr className='my-6'/>
+      <div className="my-6 px-2 lg:px-0">
+        <hr/>
+      </div>
       <div className='flex flex-col w-full md:w-3/4 mx-auto items-center'>
         <div className='flex flex-wrap justify-center'>
           {
@@ -147,12 +149,13 @@ const Home = () => {
           }
         </div>
       </div>
-      <hr className='my-6'/>
+      <div className="my-6 px-2 lg:px-0">
+        <hr/>
+      </div>
       <Pagination
         dataPage={dataPage}
       />
-      <hr className='my-6'/>
-    </>
+    </div>
   );
 };
 

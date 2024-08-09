@@ -22,10 +22,10 @@ export const coffeeSlice = createSlice({
   initialState,
   reducers: {
     addItems: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      if (itemIndex >= 0) {
-        state.items[itemIndex].count1 += action.payload.count1;
-        state.items[itemIndex].count2 += action.payload.count2;
+      const findItem = state.items.find((item) => item.id === action.payload.id);
+      if (findItem) {
+        findItem.count1 += action.payload.count1;
+        findItem.count2 += action.payload.count2;
       } else {
         state.items.push(action.payload);
       }
@@ -33,37 +33,19 @@ export const coffeeSlice = createSlice({
       state.count = totals.count;
       state.sum = totals.sum;
     },
-    minusItems1: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      if (itemIndex >= 0 && state.items[itemIndex].count1 > 0) {
-        state.items[itemIndex].count1 -= 1;
+    minusItems: (state, action) => {
+      const findItem = state.items.find((item) => item.id === action.payload.data.id);
+      if (findItem && findItem[action.payload.count] > 0) {
+        findItem[action.payload.count] -= 1;
       }
       const totals = calculateTotals(state.items);
       state.count = totals.count;
       state.sum = totals.sum;
     },
-    plusItems1: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      if (itemIndex >= 0 && state.items[itemIndex].count1 < 10) {
-        state.items[itemIndex].count1 += 1;
-      }
-      const totals = calculateTotals(state.items);
-      state.count = totals.count;
-      state.sum = totals.sum;
-    },
-    minusItems2: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      if (itemIndex >= 0 && state.items[itemIndex].count2 > 0) {
-        state.items[itemIndex].count2 -= 1;
-      }
-      const totals = calculateTotals(state.items);
-      state.count = totals.count;
-      state.sum = totals.sum;
-    },
-    plusItems2: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
-      if (itemIndex >= 0 && state.items[itemIndex].count2 < 10) {
-        state.items[itemIndex].count2 += 1;
+    plusItems: (state, action) => {
+      const findItem = state.items.find((item) => item.id === action.payload.data.id);
+      if (findItem) {
+        findItem[action.payload.count] += 1;
       }
       const totals = calculateTotals(state.items);
       state.count = totals.count;
@@ -86,10 +68,8 @@ export const coffeeSlice = createSlice({
 
 export const {
   addItems,
-  minusItems1,
-  plusItems1,
-  minusItems2,
-  plusItems2,
+  minusItems,
+  plusItems,
   deleteItems,
   deleteAll
 } = coffeeSlice.actions
