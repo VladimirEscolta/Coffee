@@ -1,21 +1,14 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {TrashIcon} from "../../assets/icons";
-import {goodsContext} from "../../App";
 import CartGood from "./ui/CartGood";
 import {useDispatch, useSelector} from "react-redux";
-import coffee from "../../redux/slices/coffeeSlice";
+import {deleteAll} from "../../redux/slices/coffeeSlice";
 
 
 const Cart = () => {
 
   const {items, sum} = useSelector((state) => state.coffee)
   const dispatch = useDispatch()
-
-  // const {cartGoods, setCartGoods, sum} = useContext(goodsContext)
-
-  // const delGoods = () => {
-  //   setCartGoods([])
-  // }
 
   const orderGoods = () => {
     window.alert('Заказ успешно оформлен!!! ')
@@ -29,7 +22,7 @@ const Cart = () => {
         <div className='w-full flex justify-center lg:justify-end items-center'>
           <div
             className='flex justify-center items-center mx-auto cursor-pointer'
-            // onClick={delGoods}
+            onClick={() => dispatch(deleteAll())}
           >
             <TrashIcon className='w-6 '/>
             <p className='ps-2'>Очистить корзину</p>

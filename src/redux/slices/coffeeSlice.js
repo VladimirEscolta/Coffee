@@ -14,7 +14,7 @@ const calculateTotals = (items) => {
     count += item.count1 + item.count2;
     sum += item.count1 * item.price1 + item.count2 * item.price2;
   });
-  return { count, sum };
+  return {count, sum};
 };
 
 export const coffeeSlice = createSlice({
@@ -68,10 +68,30 @@ export const coffeeSlice = createSlice({
       const totals = calculateTotals(state.items);
       state.count = totals.count;
       state.sum = totals.sum;
-    }
+    },
+    deleteItems: (state, action) => {
+      const sortedItems = state.items.filter((item) => item.id !== action.payload.id);
+      state.items = sortedItems
+      const totals = calculateTotals(state.items);
+      state.count = totals.count;
+      state.sum = totals.sum;
+    },
+    deleteAll: (state) => {
+      state.items = []
+      state.count = 0;
+      state.sum = 0;
+    },
   },
 })
 
-export const {addItems, minusItems1, plusItems1, minusItems2, plusItems2} = coffeeSlice.actions
+export const {
+  addItems,
+  minusItems1,
+  plusItems1,
+  minusItems2,
+  plusItems2,
+  deleteItems,
+  deleteAll
+} = coffeeSlice.actions
 
 export default coffeeSlice.reducer

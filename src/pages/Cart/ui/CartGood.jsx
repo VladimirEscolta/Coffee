@@ -1,17 +1,11 @@
 import React from 'react';
 import {CloseIcon} from "../../../assets/icons";
 import {useDispatch} from "react-redux";
-import {minusItems1, minusItems2, plusItems1, plusItems2} from "../../../redux/slices/coffeeSlice";
+import {deleteItems, minusItems1, minusItems2, plusItems1, plusItems2} from "../../../redux/slices/coffeeSlice";
 
 const CartGood = ({items, className}) => {
 
   const dispatch = useDispatch()
-
-  // const delGoods = () => {
-  //   let array = cartGoods
-  //   array.splice(index, 1);
-  //   setCartGoods([...array])
-  // }
 
   return (
     <div className={`flex flex-col xl:flex-row items-center justify-between w-full ${className}`}>
@@ -53,7 +47,7 @@ const CartGood = ({items, className}) => {
         <p className='w-32 mr-5 flex text-2xl text-yellow-500 font-bold justify-end'>{items.price1 * items.count1 + items.price2 * items.count2} ₽</p>
         <div
           className='flex w-32 text-white bg-red-500 border rounded-lg items-center justify-center cursor-pointer'
-          // onClick={delGoods}
+          onClick={() => dispatch(deleteItems(items))}
         >
           <CloseIcon className='w-4 h-10'/>
           <button className='ps-2 text-sm'>Удалить</button>
