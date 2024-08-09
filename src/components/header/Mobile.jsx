@@ -10,9 +10,11 @@ import {
   UserIcon
 } from "../../assets/icons";
 import Search from "../search/Search";
+import {useSelector} from "react-redux";
 
-const Mobile = ({sum}) => {
+const Mobile = () => {
 
+  const {count, sum} = useSelector((state) => state.coffee)
   const [openMenu, setOpenMenu] = useState(false)
 
   return (
@@ -71,12 +73,12 @@ const Mobile = ({sum}) => {
           </div>
           <p className='flex mr-4'>Корзина</p>
           <div className="text-end flex lg:block">
-            <p className='text-yellow-500'>{sum[0]} ₽</p>
-            <p className='ms-2 lg:ms-0'>{sum[1]} товар</p>
+            <p className='text-yellow-500'>{sum} ₽</p>
+            <p className='ms-2 lg:ms-0'>{count} шт.</p>
           </div>
         </Link>
         <hr className='my-4 w-full'/>
-        <div className='flex items-center'>
+        <div className='flex items-center mb-4'>
           <div className='mr-4'>Пермь</div>
           <div className=''>8 800 333-49-80</div>
         </div>

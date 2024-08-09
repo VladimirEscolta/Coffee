@@ -1,13 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import HeaderLevel1 from "./HeaderLevel1";
 import HeaderLevel2 from "./HeaderLevel2";
 import Mobile from "./Mobile";
-import {goodsContext} from "../../App";
 
 
 const Index = () => {
-
-  const {sum} = useContext(goodsContext)
 
   return (
     <div className='relative h-16 lg:h-36'>
@@ -16,10 +13,10 @@ const Index = () => {
           <div className='w-full hidden lg:flex lg:flex-col'>
             <HeaderLevel1/>
             <hr className='my-4'/>
-            <HeaderLevel2 sum={sum}/>
+            <HeaderLevel2/>
           </div>
           <div className='flex flex-col lg:hidden w-full mt-2'>
-            <Mobile sum={sum}/>
+            <Mobile/>
           </div>
         </div>
       </div>

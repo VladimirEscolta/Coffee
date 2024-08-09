@@ -12,13 +12,12 @@ const Cart = () => {
 
   const orderGoods = () => {
     window.alert('Заказ успешно оформлен!!! ')
-    // setCartGoods([])
+    // dispatch(deleteAll())
   }
 
   return (
     <>
       <div className='flex flex-col w-full md:w-3/4 mx-auto items-center mt-10 px-2 lg:px-0'>
-
         <div className='w-full flex justify-center lg:justify-end items-center'>
           <div
             className='flex justify-center items-center mx-auto cursor-pointer'
@@ -47,7 +46,6 @@ const Cart = () => {
       </div>
     </>
   );
-
 };
 
 export default Cart;
