@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {ScreenMainIcon} from "../../assets/image";
+import {ScreenMainIcon} from "../../../assets/image";
 
 
 const EmptyCart = () => {

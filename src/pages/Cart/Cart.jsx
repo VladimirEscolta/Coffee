@@ -3,7 +3,7 @@ import {TrashIcon} from "../../assets/icons";
 import CartGood from "./ui/CartGood";
 import {useDispatch, useSelector} from "react-redux";
 import {deleteAll} from "../../redux/slices/coffeeSlice";
-import EmptyCart from "./EmptyCart";
+import EmptyCart from "./ui/EmptyCart";
 
 
 const Cart = () => {
@@ -17,6 +17,7 @@ const Cart = () => {
 
   const orderGoods = () => {
     window.alert('Заказ успешно оформлен!!! ')
+    window.location.href = '/'
     dispatch(deleteAll())
   }
 
